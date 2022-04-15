@@ -76,12 +76,12 @@ class Ingredient(Product):
 
 
 class Pizza:
-    def __init__(self, title, list_ingrid):
+    def __init__(self, title, ingredients):
         if title == '':
             raise ValueError('Значение атрибутов может быть только положительным')
         else:
             self.__title = title
-            self.__list_ingrid = list_ingrid
+            self.__ingredients = ingredients
 
     @property
     def title(self):
@@ -96,13 +96,13 @@ class Pizza:
 
     def get_calorific(self):
         calories = 0
-        for el in self.__list_ingrid:
+        for el in self.__ingredients:
             calories += el.get_calorific()
         return calories
 
     def get_cost(self):
         cost = 0
-        for el in self.__list_ingrid:
+        for el in self.__ingredients:
             cost += el.get_cost()
         return cost
 
